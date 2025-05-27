@@ -2,20 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.input {
+    @apply lg:w-[35rem] px-3 py-2 border-b border-b-gray-300 bg-darkprimary outline-none w-4/5;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.error{
+    @apply text-red-500 text-sm font-semibold;
 }

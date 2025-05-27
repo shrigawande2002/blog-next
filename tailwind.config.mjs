@@ -10,8 +10,17 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        darkprimary:"#1b1a1e",
+        yellow:"#FACC15",
+        fontWhite: "#FAF1E6",
       },
     },
+    fontFamily: {
+      geist: ["Geist"],
+    },
+
+   
+
   },
   plugins: [],
 };
