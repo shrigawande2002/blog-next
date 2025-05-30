@@ -2,6 +2,7 @@
 import { getCollection } from "@/lib/db";
 import {registerSchem} from "@/lib/validation";
 import bcrypt from 'bcrypt';
+import { createSession } from "@/lib/session";
 
 export const registerAction = async (state , formData) => {
 
@@ -41,11 +42,12 @@ export const registerAction = async (state , formData) => {
 
     const hasPassword = await bcrypt.hash(password, 10);
     
-    const result = userCollection.insertOne({name, email, password:hasPassword});
-    console.log(result);
+    const result = await userCollection.insertOne({ name, email, password: hasPassword });
 
-    
-  
+    // session management
+    await createSession(result.insertedId.toString());
+    console.log(result.insertedId);
+
 }
 
 
