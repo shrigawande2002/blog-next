@@ -1,21 +1,45 @@
 
-import React, { act } from 'react'
-import { Modal } from 'antd'
+
+
 import PropTypes from 'prop-types'
 import { MdEmail } from "react-icons/md";
-import { FaLock } from "react-icons/fa";
-import { FaUserCircle } from "react-icons/fa";
+import { FaLock, FaUserCircle } from "react-icons/fa";
 import { loginAction, registerAction } from "@/actions/login";
 import { LoadingOutlined } from '@ant-design/icons';
-import { Spin } from 'antd';
-import { useActionState } from 'react';
-import { useState } from 'react';
+import { Spin, Modal } from 'antd';
+import { useActionState, useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const AuthModal = ({ open, setOpen }) => {
 
     const [state, action, isPending] = useActionState(loginAction, undefined)
     const [registerState, register, isRegisterPending] = useActionState(registerAction, undefined)
     const [isLogin, setIsLogin] = useState(true);
+
+
+
+    useEffect(() => {
+        if (!isRegisterPending && registerState?.status === 201) {
+            setOpen(false);
+            toast.success(`Welcome ${registerState?.data?.user?.name}`, {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: true,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
+    }, [isRegisterPending, registerState]);
+
+    useEffect(() => {
+        if (!isPending && state && !state.error) {
+            setOpen(false);
+        }
+    }, [isPending, state]);
+
 
 
 
@@ -65,15 +89,20 @@ const AuthModal = ({ open, setOpen }) => {
                             </div>)
                         }
 
-                        <label htmlFor="conformpassword" className='text-darkprimary font-semibold font-geist text-sm mt-4'> Conform Password </label>
+                        <label htmlFor="confirmPassword" className='text-darkprimary font-semibold font-geist text-sm mt-4'> Conform Password </label>
                         <p className='flex items-center gap-2 '>
                             <FaLock size={22} className='' />
-                            <input type="password" placeholder='conform Password' className='outline-none border-b  md:md:w-96   ' name='conformPassword' />
+                            <input type="password" placeholder='conform Password' className='outline-none border-b  md:md:w-96 ' name='confirmPassword' />
                         </p>
 
 
                     </div>
-                    <button className='bg-yellow border-none font-geist text-sm font-semibold  p-2 rounded-md  px-4 my-4'> Register </button>
+                    <button className='bg-yellow border-none font-geist text-sm font-semibold  p-2 rounded-md  px-4 my-4'> {isRegisterPending ? <Spin
+                        indicator={<LoadingOutlined spin color='white' />}
+                        size="defult"
+
+                        className="flex justify-center items-center  px-10"
+                    /> : "Register"} </button>
                     <p className='text-sm text-gray-500'>Don't have an account? <button onClick={() => setIsLogin(!isLogin)} className='text-yellow font-semibold'> {isLogin ? "Register" : "Login"} </button> </p>
                 </form>
 

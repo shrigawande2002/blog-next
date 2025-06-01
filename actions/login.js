@@ -24,6 +24,17 @@ export const registerAction = async (state , formData) => {
     } 
 
     const {email , name , password} = validateFields.data;
+
+    if (!password || password.trim() === "") {
+    return {
+      error: { password: "Password cannot be empty" },
+      name,
+      email,
+    };
+  }
+
+  console.log("Register action called", email, name, password);
+
     const userCollection = await getCollection('users');
 
     if(!userCollection) return { error:{email: "Failed to connect to the database"} };
@@ -37,16 +48,28 @@ export const registerAction = async (state , formData) => {
         };
     }
 
-
-    // hassshing the password 
+    // // hassshing the password 
 
     const hasPassword = await bcrypt.hash(password, 10);
     
-    const result = await userCollection.insertOne({ name, email, password: hasPassword });
+    const result = await userCollection.insertOne({ name, email, password:hasPassword});
 
-    // session management
+
+    // // session management
     await createSession(result.insertedId.toString());
-    console.log(result.insertedId);
+     return {
+        success: true,
+        status: 201,
+        data: {
+            user :{
+                id: result.insertedId.toString(),
+                name,
+                email
+            }
+        },
+        message: "User registered successfully"
+     }
+     
 
 }
 
