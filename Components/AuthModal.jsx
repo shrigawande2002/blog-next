@@ -118,17 +118,26 @@ const AuthModal = ({ open, setOpen }) => {
                         <label htmlFor="email" className='text-darkprimary font-semibold font-geist text-sm '>  Email </label>
                         <p className='flex items-center gap-2 mt-4'>
                             <MdEmail size={22} className='' />
-                            <input type="email" placeholder='E-mail' autoComplete='off' className='outline-none border-b md:w-96  ' />
+                            <input type="email" name='email' placeholder='E-mail' autoComplete='off' className='outline-none border-b md:w-96  ' />
+
+
                         </p>
+                        {state?.error?.email && <span className='error'>{state.error.email}</span>}
 
                         <label htmlFor="password" className='text-darkprimary font-semibold font-geist text-sm mt-4'>  Password </label>
                         <p className='flex items-center gap-2 mt-4'>
                             <FaLock size={22} className='' />
-                            <input type="password" placeholder='Password' autoComplete='off' className='outline-none border-b md:w-96  ' />
+                            <input type="password" name='password' placeholder='Password' autoComplete='off' className='outline-none border-b md:w-96  ' />
                         </p>
+                        {state?.error?.password && <span className='error'>{state.error.password}</span>}
 
                     </div>
-                    <button className='bg-yellow border-none font-geist text-sm font-semibold  p-2 rounded-md  px-4'> Login </button>
+                    <button className='bg-yellow border-none font-geist text-sm font-semibold  p-2 rounded-md  px-4 my-4'> {isPending ? <Spin
+                        indicator={<LoadingOutlined spin color='white' />}
+                        size="defult"
+
+                        className="flex justify-center items-center  px-10"
+                    /> : "Login"} </button>
                     <p className='text-sm text-gray-500'>Don't have an account? <button onClick={() => setIsLogin(!isLogin)} className='text-yellow font-semibold'> {isLogin ? "Register" : "Login"} </button> </p>
                 </form>
 
