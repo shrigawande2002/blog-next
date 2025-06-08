@@ -14,3 +14,33 @@
 .active-link{
     @apply text-black bg-yellow rounded-md p-2  font-semibold;
 }
+
+
+.custom-auth-modal .ant-modal-content {
+  background-color: #1b1a1e !important;
+}
+
+
+
+
+.text-animation{
+    animation: textAnimation 5s infinite;
+    background: linear-gradient(to right, #ff0000, #ffff00, #1b1a1e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+
+}
+
+@keyframes textAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

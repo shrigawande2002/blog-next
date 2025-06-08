@@ -1,7 +1,7 @@
 // app/components/Header.jsx
 import getAuth from "@/lib/getAuth";
 import LoginButton from "./LoginButton";
-import { logOut } from "@/actions/login";
+
 import NavLinks from "./NavLinks"; // 👈 client-side link rendering
 
 export default async function Header() {

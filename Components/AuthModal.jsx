@@ -50,33 +50,34 @@ const AuthModal = ({ open, setOpen }) => {
             footer={null}
             width={{ xs: "90%", sm: 500, md: 500, lg: 500, xl: 500, xxl: 500 }}
             centered
+            className="custom-auth-modal"
         >
 
-            {!isLogin && (<div>
-                <h1 className='font-geist text-xl font-semibold text-darkprimary  flex  justify-center '> Register </h1>
+            {!isLogin && (<div className='bg-darkprimary text-white'>
+                <h1 className='font-geist text-xl font-semibold text-white flex  justify-center '> Register </h1>
 
                 <form action={register} className='flex flex-col  mt-10 justify-center items-center'>
 
                     <div className='flex flex-col gap-4 justify-center'>
 
-                        <label htmlFor="name" className='text-darkprimary font-semibold font-geist text-sm '>  Name </label>
+                        <label htmlFor="name" className='text-white  font-semibold font-geist text-sm '>  Name </label>
                         <p className='flex items-center gap-2 '>
                             <FaUserCircle size={22} />
-                            <input type="text" placeholder='Name' autoComplete='off' className='outline-none border-b md:w-96  rounded-md' name='name' />
+                            <input type="text" placeholder='Name' autoComplete='off' className='outline-none  md:w-96  rounded-md bg-darkprimary border p-2' name='name' />
                         </p>
                         {registerState?.error?.name && <span className='error'>{registerState.error.name}</span>}
 
-                        <label htmlFor="email" className='text-darkprimary font-semibold font-geist text-sm '>  Email </label>
+                        <label htmlFor="email" className='text-white font-semibold font-geist text-sm bg-darkprimary '>  Email </label>
                         <p className='flex items-center gap-2 '>
                             <MdEmail size={22} className='' />
-                            <input type="email" placeholder='E-mail' autoComplete='off' className='outline-none border-b md:w-96  ' name='email' defaultValue={register?.email} />
+                            <input type="email" placeholder='E-mail' autoComplete='off' className='outline-none  md:w-96  rounded-md bg-darkprimary border p-2' name='email' defaultValue={register?.email} />
                         </p>
                         {registerState?.error?.email && <span className='error'>{registerState.error.email}</span>}
 
-                        <label htmlFor="password" className='text-darkprimary font-semibold font-geist text-sm '>  Password </label>
+                        <label htmlFor="password" className='text-white font-semibold font-geist text-sm '>  Password </label>
                         <p className='flex items-center gap-2'>
                             <FaLock size={22} className='' />
-                            <input type="password" placeholder='Password' autoComplete='off' className='outline-none border-b md:w-96  ' name='password' />
+                            <input type="password" placeholder='Password' autoComplete='off' className='outline-none  md:w-96  rounded-md bg-darkprimary border p-2' name='password' />
                         </p>
                         {
                             registerState?.error?.password && (<div className='error'>
@@ -89,10 +90,10 @@ const AuthModal = ({ open, setOpen }) => {
                             </div>)
                         }
 
-                        <label htmlFor="confirmPassword" className='text-darkprimary font-semibold font-geist text-sm mt-4'> Conform Password </label>
+                        <label htmlFor="confirmPassword" className='text-white font-semibold font-geist text-sm mt-4'> Conform Password </label>
                         <p className='flex items-center gap-2 '>
                             <FaLock size={22} className='' />
-                            <input type="password" placeholder='conform Password' className='outline-none border-b  md:md:w-96 ' name='confirmPassword' />
+                            <input type="password" placeholder='conform Password' className='outline-none  md:w-96  rounded-md bg-darkprimary border p-2' name='confirmPassword' />
                         </p>
 
 
@@ -109,25 +110,25 @@ const AuthModal = ({ open, setOpen }) => {
             </div>)}
 
 
-            {isLogin && (<div> <h1 className='font-geist text-xl font-semibold text-darkprimary  flex  justify-center '> Login </h1>
+            {isLogin && (<div> <h1 className='font-geist text-xl font-semibold text-white  flex  justify-center '> Login </h1>
 
                 <form action={action} className='flex flex-col gap-4 mt-10 justify-center items-center'>
 
                     <div className='flex flex-col gap-4 justify-center'>
 
-                        <label htmlFor="email" className='text-darkprimary font-semibold font-geist text-sm '>  Email </label>
+                        <label htmlFor="email" className='text-white font-semibold font-geist text-sm '>  Email </label>
                         <p className='flex items-center gap-2 mt-4'>
-                            <MdEmail size={22} className='' />
-                            <input type="email" name='email' placeholder='E-mail' autoComplete='off' className='outline-none border-b md:w-96  ' />
+                            <MdEmail size={22} color='white' />
+                            <input type="email" name='email' placeholder='E-mail' autoComplete='off' className='outline-none  md:w-96  rounded-md bg-darkprimary border p-2 ' />
 
 
                         </p>
                         {state?.error?.email && <span className='error'>{state.error.email}</span>}
 
-                        <label htmlFor="password" className='text-darkprimary font-semibold font-geist text-sm mt-4'>  Password </label>
+                        <label htmlFor="password" className='text-white font-semibold font-geist text-sm mt-4'>  Password </label>
                         <p className='flex items-center gap-2 mt-4'>
-                            <FaLock size={22} className='' />
-                            <input type="password" name='password' placeholder='Password' autoComplete='off' className='outline-none border-b md:w-96  ' />
+                            <FaLock size={22} color='white' />
+                            <input type="password" name='password' placeholder='Password' autoComplete='off' className='outline-none  md:w-96  rounded-md bg-darkprimary border p-2' />
                         </p>
                         {state?.error?.password && <span className='error'>{state.error.password}</span>}
 

@@ -23,16 +23,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-darkprimary text-white`}
       >
-        <nav><Header /></nav>
-        <main className="h-screen w-full bg-darkprimary">
-          <ToastContainer 
-    
-          />
+        <Header />
+
+        {/* main content grows to fill space */}
+        <main className="flex-grow">
+          <ToastContainer />
           {children}
-       </main>
-       <footer> <Footer/></footer>
+        </main>
+
+        <Footer />
       </body>
     </html>
   );
