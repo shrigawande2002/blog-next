@@ -8,3 +8,9 @@
 .error{
     @apply text-red-500 text-sm font-semibold;
 }
+
+
+
+.active-link{
+    @apply text-black bg-yellow rounded-md p-2  font-semibold;
+}

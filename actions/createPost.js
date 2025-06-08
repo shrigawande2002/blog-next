@@ -10,18 +10,20 @@ export async function CreatePost(state, formData) {
 
     const title = formData.get("title");
     const content = formData.get("content");
+    const img = formData.get("img");
     console.log(title, content);
 
     const user = await getAuth();
     if (!user) return redirect("/");
 
-    const validateFields = BlogPostSchema.safeParse({ title, content });
+    const validateFields = BlogPostSchema.safeParse({ title, content, img });
 
     if (!validateFields.success) {
         return {
             error: validateFields.error.flatten().fieldErrors,
             title,
-            content
+            content,
+            img
         };
     }
 
@@ -34,11 +36,11 @@ export async function CreatePost(state, formData) {
         const post = {
             title: validateFields.data.title,
             content: validateFields.data.content,
+            img: validateFields.data.img,
             useId: ObjectId.createFromHexString(user.userID),
         }
-
-
         await postCollection.insertOne(post);
+
     } catch (error) {
         console.error("Error connecting to MongoDB:", error);
         throw new Error("Failed to connect to the database");
@@ -46,5 +48,5 @@ export async function CreatePost(state, formData) {
     }
 
 
-   redirect("/");
+    redirect("/");
 }

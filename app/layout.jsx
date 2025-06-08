@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <nav><Header /></nav>
-       <main className="h-screen w-full">
+        <main className="h-screen w-full bg-darkprimary">
           <ToastContainer 
     
           />
