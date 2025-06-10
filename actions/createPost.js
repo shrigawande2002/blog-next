@@ -51,12 +51,10 @@ export async function CreatePost(state, formData) {
     redirect("/");
 }
 
-
 export async function deletePost(id) {
     console.log("Deleting post with ID:", id);
     const postCollection = await getCollection('posts');
     if (!postCollection) return { error: { title: "Failed to connect to the database" } };
-    
     const result = await postCollection.deleteOne({ _id: ObjectId.createFromHexString(id) });
     console.log("Delete result:", result);
     
