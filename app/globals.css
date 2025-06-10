@@ -23,6 +23,7 @@
 
 
 
+
 .text-animation{
     animation: textAnimation 5s infinite;
     background: linear-gradient(to right, #ff0000, #ffff00, #1b1a1e);
