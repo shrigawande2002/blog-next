@@ -93,7 +93,7 @@ const AuthModal = ({ open, setOpen }) => {
                         <label htmlFor="confirmPassword" className='text-white font-semibold font-geist text-sm mt-4'> Conform Password </label>
                         <p className='flex items-center gap-2 '>
                             <FaLock size={22} className='' />
-                            <input type="password" placeholder='conform Password' className='outline-none  md:w-96  rounded-md bg-darkprimary border p-2' name='confirmPassword' />
+                            <input type="password" placeholder='conform Password' className='outline-none  md:w-96  rounded-md bg-darkprimary placeholder:text-white border p-2' name='confirmPassword' />
                         </p>
 
 
@@ -119,7 +119,7 @@ const AuthModal = ({ open, setOpen }) => {
                         <label htmlFor="email" className='text-white font-semibold font-geist text-sm '>  Email </label>
                         <p className='flex items-center gap-2 mt-4'>
                             <MdEmail size={22} color='white' />
-                            <input type="email" name='email' placeholder='E-mail' autoComplete='off' className='outline-none  md:w-96  rounded-md bg-darkprimary border p-2 ' />
+                            <input type="email" name='email' placeholder='E-mail' autoComplete='off' className='outline-none  md:w-96  rounded-md bg-darkprimary border p-2 placeholder:text-white text-white ' />
 
 
                         </p>
@@ -128,7 +128,7 @@ const AuthModal = ({ open, setOpen }) => {
                         <label htmlFor="password" className='text-white font-semibold font-geist text-sm mt-4'>  Password </label>
                         <p className='flex items-center gap-2 mt-4'>
                             <FaLock size={22} color='white' />
-                            <input type="password" name='password' placeholder='Password' autoComplete='off' className='outline-none  md:w-96  rounded-md bg-darkprimary border p-2' />
+                            <input type="password" name='password' placeholder='Password' autoComplete='off' className='outline-none  md:w-96  rounded-md bg-darkprimary border p-2 text-white' />
                         </p>
                         {state?.error?.password && <span className='error'>{state.error.password}</span>}
 
