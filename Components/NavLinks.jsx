@@ -84,7 +84,7 @@ export default function NavLinks({ authUser }) {
         </div>
 
         {/* MOBILE DROPDOWN BELOW NAV */}
-        {mobileOpen && (
+        {/* {mobileOpen && (
           <div className="flex flex-col gap-4 px-6 py-4 font-geist md:hidden bg-darkprimary shadow-md z-40">
             <Link href="/about" className={isActive("/about")} onClick={() => setMobileOpen(false)}>
               About
@@ -121,7 +121,7 @@ export default function NavLinks({ authUser }) {
               </>
             )}
           </div>
-        )}
+        )} */}
       </div>
     </>
   );
