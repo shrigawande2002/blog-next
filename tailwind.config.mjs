@@ -1,13 +1,45 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}", // Add this if you're using src directory
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    // Add any other directories where you use Tailwind classes
+    "./layouts/**/*.{js,ts,jsx,tsx,mdx}", // Add if you use layouts
   ],
-  important: true, // Add this to ensure Tailwind utilities override other styles
+  important: '#__next', // More targeted than global important
+  safelist: [
+    // Navbar-related classes
+    'hidden',
+    'md:flex',
+    'md:hidden',
+    'flex',
+    'fixed',
+    'sticky',
+    'z-50',
+    'z-[60]',
+    'py-2',
+    'py-4',
+    'px-4',
+    'gap-2',
+    'gap-4',
+    'gap-6',
+    'text-yellow',
+    'text-white',
+    'bg-darkprimary',
+    'hover:text-gray-300',
+
+    // Modal-related classes
+    'inset-0',
+    'bg-opacity-50',
+    'overflow-y-auto',
+    'sm:max-w-lg',
+
+    // Dynamic classes
+    { pattern: /bg-(red|blue|green|yellow)-(500|600)/ },
+    { pattern: /text-(white|black|yellow)/ },
+    { pattern: /p(x|y)?-/ },
+  ],
   theme: {
     extend: {
       colors: {
@@ -18,12 +50,25 @@ export default {
         fontWhite: "#FAF1E6",
       },
       fontFamily: {
-        geist: ["Geist", "sans-serif"], // Added fallback font
+        geist: ["Geist", "sans-serif"],
+      },
+      zIndex: {
+        '60': '60', // For modals above navbar
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'), // If using form elements
+  ],
   corePlugins: {
-    preflight: true, // Ensure this is true (default)
+    preflight: true,
+  },
+  variants: {
+    extend: {
+      display: ['responsive', 'group-hover'],
+      visibility: ['responsive', 'group-hover'],
+      padding: ['responsive', 'hover'],
+      margin: ['responsive', 'hover'],
+    },
   },
 }
