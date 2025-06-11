@@ -34,6 +34,10 @@ export default {
     'bg-opacity-50',
     'overflow-y-auto',
     'sm:max-w-lg',
+    "container",
+    "mx-auto",
+    "items-center",
+    "justify-between",
 
     // Dynamic classes
     { pattern: /bg-(red|blue|green|yellow)-(500|600)/ },
