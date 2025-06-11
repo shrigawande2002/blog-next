@@ -1,13 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}", // Add this if you're using src directory
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./layouts/**/*.{js,ts,jsx,tsx,mdx}", // Add if you use layouts
+    // Add any other directories where you use Tailwind classes
   ],
-  important: '#__next', // More targeted than global important
+  important: true, // Add this to ensure Tailwind utilities override other styles
   safelist: [
     // Navbar-related classes
     'hidden',
@@ -50,25 +50,13 @@ export default {
         fontWhite: "#FAF1E6",
       },
       fontFamily: {
-        geist: ["Geist", "sans-serif"],
-      },
-      zIndex: {
-        '60': '60', // For modals above navbar
+        geist: ["Geist", "sans-serif"], // Added fallback font
       },
     },
   },
-  plugins: [
-    // If using form elements
-  ],
+  plugins: [],
+
   corePlugins: {
-    preflight: true,
-  },
-  variants: {
-    extend: {
-      display: ['responsive', 'group-hover'],
-      visibility: ['responsive', 'group-hover'],
-      padding: ['responsive', 'hover'],
-      margin: ['responsive', 'hover'],
-    },
+    preflight: true, // Ensure this is true (default)
   },
 }
