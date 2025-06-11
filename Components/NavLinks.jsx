@@ -8,7 +8,7 @@ import AuthModal from "./AuthModal";
 import logo from "../assets/logo.png";
 import Image from "next/image";
 import { FiMenu, FiX } from "react-icons/fi";
-import "../app/globals.css";
+
 export default function NavLinks({ authUser }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -18,7 +18,7 @@ export default function NavLinks({ authUser }) {
   return (
     <>
       {/* NAVBAR */}
-      <div className="!w-full">
+      {/* <div className="w-full">
         <div className="gap-2 md:gap-6 font-semibold text-lg font-geist sticky z-50 p-2 md:p-4 py-8 justify-center items-center flex md:flex">
           <Link href="/" className="items-center gap-2 flex">
             <Image
@@ -47,7 +47,7 @@ export default function NavLinks({ authUser }) {
           </div>
 
           {/* Desktop Auth Buttons */}
-          <div className="hidden md:flex ml-auto gap-4">
+      {/* <div className="hidden md:flex ml-auto gap-4">
             {authUser ? (
               <>
                 <Link href="/dashboard" className={isActive("/dashboard")}>
@@ -71,7 +71,7 @@ export default function NavLinks({ authUser }) {
                 <AuthModal open={open} setOpen={setOpen} />
               </>
             )}
-          </div>
+          </div> */}
 
           {/* Hamburger Icon */}
           {/* <button
@@ -80,8 +80,8 @@ export default function NavLinks({ authUser }) {
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <FiX /> : <FiMenu />}
-          </button> */}
-        </div>
+          </button>
+        </div> */}
 
         {/* MOBILE DROPDOWN BELOW NAV */}
         {/* {mobileOpen && (
@@ -122,7 +122,31 @@ export default function NavLinks({ authUser }) {
             )}
           </div>
         )} */}
+      {/* </div>  */}
+
+      <div className="flex justify-center items-center gap-4">
+        <Link href="/" className="items-center gap-2 flex">
+          <Image
+            src={logo}
+            alt="Logo"
+            width={50}
+            height={50}
+            className="rounded-full hidden md:flex"
+          />
+          <span className="text-xl md:text-2xl font-bold text-yellow font-geist">
+            InspiWord
+          </span>
+        </Link>
+
+        <Link href="/about" className={isActive("/about")}>
+          About
+        </Link>
+
+        <Link href="/contact" className={isActive("/contact")}>
+          Contact
+        </Link>
       </div>
+
     </>
   );
 }
