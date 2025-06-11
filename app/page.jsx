@@ -1,7 +1,7 @@
 import { getCollection } from '@/lib/db';
-import PostCard from '@/components/PostCard';
-import SwiperSlider from '@/components/SwiperSlider';
-import HeroSection from '@/components/HeroSection'; // import your client component
+import PostCard from '../Components/PostCard';
+import SwiperSlider from '../Components/SwiperSlider';
+import HeroSection from '../Components/HeroSection'; // import your client component
 
 const Page = async () => {
   const getPostCollection = await getCollection('posts');
