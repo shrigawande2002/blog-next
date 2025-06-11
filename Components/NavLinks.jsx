@@ -8,7 +8,7 @@ import AuthModal from "./AuthModal";
 import logo from "../assets/logo.png";
 import Image from "next/image";
 import { FiMenu, FiX } from "react-icons/fi";
-
+import "../app/globals.css";
 export default function NavLinks({ authUser }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
