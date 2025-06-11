@@ -34,19 +34,21 @@ export default function NavLinks({ authUser }) {
             </span>
           </Link>
 
-          <li className="hidden md:block">
+          <div className="hidden md:block">
+
             <Link href="/about" className={isActive("/about")}>
               About
             </Link>
-          </li>
-          <li className="hidden md:block">
+          </div>
+          <div className="hidden md:block">
+
             <Link href="/contact" className={isActive("/contact")}>
               Contact
             </Link>
-          </li>
+          </div>
 
           {/* Desktop Auth Buttons */}
-          <li className="hidden md:flex ml-auto gap-4">
+          <div className="hidden md:flex ml-auto gap-4">
             {authUser ? (
               <>
                 <Link href="/dashboard" className={isActive("/dashboard")}>
@@ -70,7 +72,7 @@ export default function NavLinks({ authUser }) {
                 <AuthModal open={open} setOpen={setOpen} />
               </>
             )}
-          </li>
+          </div>
 
           {/* Hamburger Icon */}
           <button

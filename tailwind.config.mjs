@@ -18,9 +18,6 @@ export default {
     fontFamily: {
       geist: ["Geist"],
     },
-
-   
-
   },
   plugins: [],
 };
