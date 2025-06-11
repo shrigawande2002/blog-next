@@ -28,7 +28,7 @@ export default {
     'text-white',
     'bg-darkprimary',
     'hover:text-gray-300',
-
+    'md:w-full',
     // Modal-related classes
     'inset-0',
     'bg-opacity-50',
