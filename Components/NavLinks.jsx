@@ -14,8 +14,8 @@ export default function NavLinks({ authUser }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const isActive = (href) => pathname === href
+  
+  const isActive = (href) => pathname === href 
     ? "text-yellow underline" 
     : "text-white hover:text-gray-300";
 
@@ -63,12 +63,12 @@ export default function NavLinks({ authUser }) {
               </form>
             </>
           ) : (
-              <button
-                className="bg-yellow px-4 py-2 text-black rounded-md font-semibold hover:bg-yellow-600 transition-colors"
-                onClick={() => setOpen(true)}
-              >
-                Login
-              </button>
+            <button
+              className="bg-yellow px-4 py-2 text-black rounded-md font-semibold hover:bg-yellow-600 transition-colors"
+              onClick={() => setOpen(true)}
+            >
+              Login
+            </button>
           )}
         </div>
 
@@ -87,31 +87,31 @@ export default function NavLinks({ authUser }) {
       {/* Mobile Navigation - Only shows when mobileOpen is true */}
       {mobileOpen && (
         <div className="md:hidden bg-darkprimary px-4 py-2 space-y-4 border-t border-gray-800">
-          <Link
+          <Link 
             href="/about" 
             className={`block py-2 ${isActive("/about")}`}
             onClick={() => setMobileOpen(false)}
           >
             About
           </Link>
-          <Link
+          <Link 
             href="/contact" 
             className={`block py-2 ${isActive("/contact")}`}
             onClick={() => setMobileOpen(false)}
           >
             Contact
           </Link>
-
+          
           {authUser ? (
             <>
-              <Link
+              <Link 
                 href="/dashboard" 
                 className={`block py-2 ${isActive("/dashboard")}`}
                 onClick={() => setMobileOpen(false)}
               >
                 Dashboard
               </Link>
-              <Link
+              <Link 
                 href="/create/post" 
                 className={`block py-2 ${isActive("/create/post")}`}
                 onClick={() => setMobileOpen(false)}
@@ -119,7 +119,7 @@ export default function NavLinks({ authUser }) {
                 Create Post
               </Link>
               <form action={logOut}>
-                <button
+                <button 
                   type="submit" 
                   className="block py-2 text-white hover:text-yellow w-full text-left"
                   onClick={() => setMobileOpen(false)}
@@ -129,19 +129,19 @@ export default function NavLinks({ authUser }) {
               </form>
             </>
           ) : (
-              <button
-                className="w-full bg-yellow p-2 rounded-md text-black font-semibold text-left"
-                onClick={() => {
-                  setOpen(true);
-                  setMobileOpen(false);
-                }}
-              >
-                Login
-              </button>
+            <button
+              className="w-full bg-yellow p-2 rounded-md text-black font-semibold text-left"
+              onClick={() => {
+                setOpen(true);
+                setMobileOpen(false);
+              }}
+            >
+              Login
+            </button>
           )}
         </div>
       )}
-
+      
       {/* Auth Modal - Rendered outside navigation */}
       <AuthModal open={open} setOpen={setOpen} />
     </nav>
