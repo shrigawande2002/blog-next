@@ -13,7 +13,6 @@ export default function NavLinks({ authUser }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
   const isActive = (href) => (pathname === href ? "active-link" : "");
 
   return (
@@ -74,6 +73,7 @@ export default function NavLinks({ authUser }) {
 
           {/* Hamburger Icon */}
           <button
+          
             className="md:hidden ml-auto text-2xl"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
