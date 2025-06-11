@@ -18,7 +18,7 @@ export default function NavLinks({ authUser }) {
   return (
     <>
       {/* NAVBAR */}
-      <div className="w-full">
+      <div className="!w-full">
         <div className="gap-2 md:gap-6 font-semibold text-lg font-geist sticky z-50 p-2 md:p-4 py-8 justify-center items-center flex md:flex">
           <Link href="/" className="items-center gap-2 flex">
             <Image
@@ -74,13 +74,13 @@ export default function NavLinks({ authUser }) {
           </div>
 
           {/* Hamburger Icon */}
-          <button
-          
+          {/* <button
+
             className="md:hidden ml-auto text-2xl"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <FiX /> : <FiMenu />}
-          </button>
+          </button> */}
         </div>
 
         {/* MOBILE DROPDOWN BELOW NAV */}
