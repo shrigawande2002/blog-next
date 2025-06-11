@@ -58,7 +58,7 @@ export default {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'), // If using form elements
+    // If using form elements
   ],
   corePlugins: {
     preflight: true,
