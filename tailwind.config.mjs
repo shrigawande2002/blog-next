@@ -38,6 +38,7 @@ export default {
     "mx-auto",
     "items-center",
     "justify-between",
+    "w-[22rem]",
 
     // Dynamic classes
     { pattern: /bg-(red|blue|green|yellow)-(500|600)/ },
